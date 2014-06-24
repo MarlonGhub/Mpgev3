@@ -16,10 +16,15 @@ class NotesControllerTest extends ControllerTestCase {
 		'app.note',
 		'app.job',
 		'app.user',
+		'app.group',
+		'app.emailgroup',
+		'app.emailgroups_user',
+		'app.notification',
+		'app.emailgroups_notification',
 		'app.envelope',
 		'app.jobtype',
-		'app.notification',
-		'app.upload'
+		'app.upload',
+		'app.uploadtype'
 	);
 
 /**

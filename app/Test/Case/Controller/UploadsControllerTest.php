@@ -16,13 +16,14 @@ class UploadsControllerTest extends ControllerTestCase {
 		'app.upload',
 		'app.job',
 		'app.user',
+		'app.group',
+		'app.emailgroup',
+		'app.emailgroups_user',
+		'app.notification',
+		'app.emailgroups_notification',
 		'app.envelope',
 		'app.jobtype',
 		'app.note',
-		'app.notification',
-		'app.emailgroup',
-		'app.emailgroups_user',
-		'app.emailgroups_notification',
 		'app.uploadtype'
 	);
 

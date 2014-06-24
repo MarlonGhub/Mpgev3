@@ -15,11 +15,16 @@ class JobsControllerTest extends ControllerTestCase {
 	public $fixtures = array(
 		'app.job',
 		'app.user',
+		'app.group',
+		'app.emailgroup',
+		'app.emailgroups_user',
+		'app.notification',
+		'app.emailgroups_notification',
 		'app.envelope',
 		'app.jobtype',
 		'app.note',
-		'app.notification',
-		'app.upload'
+		'app.upload',
+		'app.uploadtype'
 	);
 
 /**

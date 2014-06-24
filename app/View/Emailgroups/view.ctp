@@ -78,7 +78,6 @@
 		<th><?php echo __('Group Id'); ?></th>
 		<th><?php echo __('Phone'); ?></th>
 		<th><?php echo __('Extension'); ?></th>
-		<th><?php echo __('Company Id'); ?></th>
 		<th><?php echo __('Created'); ?></th>
 		<th><?php echo __('Modified'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
@@ -92,7 +91,6 @@
 			<td><?php echo $user['group_id']; ?></td>
 			<td><?php echo $user['phone']; ?></td>
 			<td><?php echo $user['extension']; ?></td>
-			<td><?php echo $user['company_id']; ?></td>
 			<td><?php echo $user['created']; ?></td>
 			<td><?php echo $user['modified']; ?></td>
 			<td class="actions">

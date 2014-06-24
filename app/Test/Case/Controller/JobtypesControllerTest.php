@@ -17,9 +17,14 @@ class JobtypesControllerTest extends ControllerTestCase {
 		'app.envelope',
 		'app.job',
 		'app.user',
-		'app.note',
+		'app.group',
+		'app.emailgroup',
+		'app.emailgroups_user',
 		'app.notification',
-		'app.upload'
+		'app.emailgroups_notification',
+		'app.note',
+		'app.upload',
+		'app.uploadtype'
 	);
 
 /**

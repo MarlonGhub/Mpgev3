@@ -15,9 +15,16 @@ class EmailgroupsControllerTest extends ControllerTestCase {
 	public $fixtures = array(
 		'app.emailgroup',
 		'app.user',
+		'app.group',
 		'app.emailgroups_user',
+		'app.emailgroups_notification',
 		'app.notification',
-		'app.emailgroups_notification'
+		'app.job',
+		'app.envelope',
+		'app.jobtype',
+		'app.note',
+		'app.upload',
+		'app.uploadtype'
 	);
 
 /**

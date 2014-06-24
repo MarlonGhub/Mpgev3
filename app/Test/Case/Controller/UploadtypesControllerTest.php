@@ -18,7 +18,6 @@ class UploadtypesControllerTest extends ControllerTestCase {
 		'app.job',
 		'app.user',
 		'app.group',
-		'app.company',
 		'app.emailgroup',
 		'app.emailgroups_user',
 		'app.notification',

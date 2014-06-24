@@ -15,7 +15,16 @@ class EnvelopesControllerTest extends ControllerTestCase {
 	public $fixtures = array(
 		'app.envelope',
 		'app.jobtype',
-		'app.job'
+		'app.job',
+		'app.user',
+		'app.group',
+		'app.emailgroup',
+		'app.emailgroups_user',
+		'app.notification',
+		'app.emailgroups_notification',
+		'app.note',
+		'app.upload',
+		'app.uploadtype'
 	);
 
 /**

@@ -16,13 +16,15 @@ class NotificationsControllerTest extends ControllerTestCase {
 		'app.notification',
 		'app.job',
 		'app.user',
+		'app.group',
+		'app.emailgroup',
+		'app.emailgroups_user',
+		'app.emailgroups_notification',
 		'app.envelope',
 		'app.jobtype',
 		'app.note',
 		'app.upload',
-		'app.emailgroup',
-		'app.emailgroups_user',
-		'app.emailgroups_notification'
+		'app.uploadtype'
 	);
 
 /**
