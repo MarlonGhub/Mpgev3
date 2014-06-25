@@ -59,7 +59,7 @@ class AddsController extends UploaderAppController {
 	*/			
 // fix this if ($this->_filesvalidation($this->request->data,$count) ) {
 			// /$this->_failedfilenote($dir);
-			if ($this->_sizecheck($this->request->data,$count)) {
+			if ($dir) {
 				$this->Session->setFlash(__('Your file(s) have been uploaded.'));
 				return $this->redirect(array('plugin' => false,'controller'=>'Uploads','action' => 'index'));
 			} else {
@@ -162,7 +162,7 @@ class AddsController extends UploaderAppController {
 #######################################################################
 #  A counter return based on error code found in $this->request->data #
 #######################################################################
-	public function _sizecheck($data,$count){
+	public function _sizecheck($dir,$data,$count){
 		$totalsize = 0;
 		debug($count);
 		debug($data);die;
