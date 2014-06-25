@@ -8,6 +8,11 @@ App::uses('AppController', 'Controller');
  */
 class GroupsController extends AppController {
 
+	public function beforeFilter(){
+		$this->Auth->allow('add','newclient','preadd','login');
+		
+	}
+
 /**
  * Components
  *

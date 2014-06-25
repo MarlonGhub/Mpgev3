@@ -31,12 +31,20 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+<<<<<<< HEAD
  public $components = array(
  	'DebugKit.Toolbar' => array('autoRun' => false),
  	'Cookie',
  	'Session',
  	
            'Auth' => array(
+=======
+    public $components = array(
+     	'Cookie',
+        'DebugKit.Toolbar',
+     	'Session',
+        'Auth' => array(
+>>>>>>> 7a9f0a90645d9d727b7f9fa0786a22d3ba706803
             'authenticate' => array(
                 'Authenticate.Cookie' => array(
                     'fields' => array(
@@ -57,12 +65,16 @@ class AppController extends Controller {
                 )
             )
         )
-    
     );
 
+<<<<<<< HEAD
+=======
     public function beforeRender(){
 		$this->Cookie->type('rijndael');
 	}
 
+>>>>>>> 7a9f0a90645d9d727b7f9fa0786a22d3ba706803
 	
 }
+
+?>

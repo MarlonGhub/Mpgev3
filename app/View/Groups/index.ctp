@@ -5,7 +5,6 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
-			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
@@ -14,9 +13,6 @@
 	<tr>
 		<td><?php echo h($group['Group']['id']); ?>&nbsp;</td>
 		<td><?php echo h($group['Group']['name']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($group['User']['name'], array('controller' => 'users', 'action' => 'view', $group['User']['id'])); ?>
-		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $group['Group']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $group['Group']['id'])); ?>
