@@ -6,8 +6,12 @@ PG&E V3
 <p>Begining</p>
 
 <h3>Plugins Needed</h3>
+    <ol>
+        <li>DebugKit</li>
 
-<ol>
-<li>DebugKit</li>
-
-</ol>
+    </ol>
+<h3>DATABASE ADDITIONS</h3>
+<ul>
+    <li>Jobs.pgeid, text</li>
+    <li>Jobs.status, varchar(32)</li>
+</ul>
