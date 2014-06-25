@@ -3,11 +3,11 @@
 	<fieldset>
 		<legend><?php echo __('Add Job'); ?></legend>
 	<?php
-		echo $this->Form->input('capnumber');
+		//echo $this->Form->input('capnumber');
 		echo $this->Form->input('name');
-		echo $this->Form->input('qty');
+		//echo $this->Form->input('qty');
 		echo $this->Form->input('duedate');
-		echo $this->Form->input('user_id');
+		//echo $this->Form->input('user_id');
 		echo $this->Form->input('envelope_id');
 		echo $this->Form->input('jobtype_id');
 	?>
