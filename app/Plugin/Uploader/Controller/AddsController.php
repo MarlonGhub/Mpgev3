@@ -35,17 +35,13 @@ class AddsController extends UploaderAppController {
 		$dir = new Folder('files'.DS.$job_id, true, 0777);
 		
 		if ($this->request->is('post')) {
+
 		
 	/* Sets count by number of elements inside the Add portion of this Data request.
 	-1 because the array starts at 0	
 	*/		
-			
-			$total = count($this->request->data['Add'])-1;
-			$count = $total;
-			$vali = $this->_emptyupload($count,$id,$this->request->data);
-			//debug($vali);die;
-			$count = $vali[0];
-			$warning = $this->_failmsg($vali[1],$count,$total);
+			$count = count($this->request->data['Add'])-1;
+			$count = $this->_emptyupload($count,$id,$this->request->data);
 			
 
 	
@@ -53,6 +49,7 @@ class AddsController extends UploaderAppController {
 	to the number located in the view. i.e submittedfile0,submittedfile1...etc 		
 	*/
 			for ($i = 0; $i <= $count-1; $i++){
+				$this->_filesvalidation($this->request->data,$i);
 				move_uploaded_file($this->request->data['Add']['submittedfile'.$i]['tmp_name'],$dir->path . DS . $this->request->data['Add']['submittedfile'.$i]['name']);
 				$this->_dbwrite($this->request->data,$dir->path,$i);
 				}
@@ -61,11 +58,12 @@ class AddsController extends UploaderAppController {
 	thereby returning false when not all upload forms are used.
 	*/			
 // fix this if ($this->_filesvalidation($this->request->data,$count) ) {
-			if ($dir) {
-				$this->Session->setFlash(__('The file(s) have been uploaded.'.$vali[1]));
+			// /$this->_failedfilenote($dir);
+			if ($this->_sizecheck($this->request->data,$count)) {
+				$this->Session->setFlash(__('Your file(s) have been uploaded.'));
 				return $this->redirect(array('plugin' => false,'controller'=>'Uploads','action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The file(s) could not be uploaded. Please, try again.'));
+				$this->Session->setFlash(__('One or more of your files could not be uploaded. Please, try again.'));
 				return $this->redirect(array('plugin' => false,'controller'=>'Uploads','action' => 'index')); //controller =>
 			}
 		}
@@ -86,11 +84,6 @@ class AddsController extends UploaderAppController {
 	
 	//Filesize
 		$filesize = $data['Add']['submittedfile'.$i]['size'];
-	
-	// Prevents write if file is empty
-		if($filesize == 0){
-			return false;
-		}
 	
 	//Loads and uses model name set at the beginning of the controller.	
 		$mname = $this->modelname;
@@ -141,13 +134,9 @@ class AddsController extends UploaderAppController {
 ####################################################################
 // Needs to be implemented with a proper foreach loop, or for loop to process all files,
 // and not return false if ONE file fails.
-	public function _filesvalidation($files,$count){
-		$i = 0;
-		foreach($files as $file){
-			$i++;
-			if(($file['submittedfile'.$i]['error']) > 0){
-				return false;
-			}
+	public function _filesvalidation($file,$i){
+		if(($file['Add']['submittedfile'.$i]['error']) > 0){
+			return false;
 		}
 		return true;
 	}
@@ -156,7 +145,6 @@ class AddsController extends UploaderAppController {
 #  A counter return based on error code found in $this->request->data #
 #######################################################################
 	public function _emptyupload ($count,$id=null,$data = array()){
-	$warn = array();
 	// Creates Counter to set for uploader iterator in function upload
 		$counter = 0;
 	/*$count = number of items in the array. If we decided to add another upload 
@@ -167,37 +155,25 @@ class AddsController extends UploaderAppController {
 			if($this->request->data['Add']['submittedfile'.$i]['error'] == 0){
 				$counter++;
 			}
-			else {
-				array_push($warn, $this->_failedfilenote($id,$this->request->data,$i));
-			}
 		}
-		return array($counter,$warn);
+		return $counter;
 	}
 
 #######################################################################
 #  A counter return based on error code found in $this->request->data #
 #######################################################################
-	public function _failedfilenote($id=null,$data,$i){
-		$warning = '';
-		$errcode = $this->request->data['Add']['submittedfile'.$i]['error'];
-		$name = 'luff';
-		//$errcode = 2;
-		$names = $this->request->data['Add']['submittedfile'.$i]['name'];
-	// If no errors exist. Increase the counter to signify a good upload
-		if( ($errcode > 0) && ($name !== '') || $this->request->data['Add']['submittedfile'.$i]['size'] == 0 ){
-			$name = $name.$names.$i;
-			$warning = $name;
-		}
-		return $warning;
-	}
-
-	public function _failmsg($arr,$count,$total){
-		$total++;
-		$add = $count + count($arr);
-		
+	public function _sizecheck($data,$count){
+		$totalsize = 0;
 		debug($count);
-		debug($total);
-		debug($arr);die;
+		debug($data);die;
+		for ($i = 0; $i <= $count; $i++){
+
+		}
+
+		if($dir->dirsize() == $totalsize){
+			return true;
+		}
+		return false;
 	}
 
 

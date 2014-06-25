@@ -66,5 +66,6 @@
 		<li><?php echo $this->Html->link(__('New Job'), array('controller' => 'jobs', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Uploadtypes'), array('controller' => 'uploadtypes', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Uploadtype'), array('controller' => 'uploadtypes', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Upload File'), array('controller' => 'uploader', 'action' => 'adds/import')); ?> </li>
 	</ul>
 </div>
