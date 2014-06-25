@@ -37,7 +37,7 @@
             <input type="checkbox" id="Notification_pa" name="data[Notification][pa]" />Proof Approval<span class="glyphicon glyphicon-question-sign"></span><br/>
             <input type="checkbox" id="Notification_js" name="data[Notification][js]" />Job Shipping<span class="glyphicon glyphicon-question-sign"></span><br/>
             <input type="checkbox" id="Notification_dn" name="data[Notification][dn]" />Delivery Notification<span class="glyphicon glyphicon-question-sign"></span><br/>
-            <select id="data[Notification][user_id]" name="data[Notification][user_id]">
+            <select id="data[Notification][user_id]" name="data[Notification][user_id][]">
                 <option value=""> - Please Select a User -</option>
                 <?php
                     foreach($users as $user){

@@ -92,7 +92,7 @@ class JobsController extends AppController {
             $this->request->data['Job']['id'] = $id;
 
             /*debug*/
-            debug($this->request->data);//die;
+            //debug($this->request->data);//die;
 
             /* Save note and job id in Notes table */
             $this->loadModel('Note');
@@ -102,7 +102,6 @@ class JobsController extends AppController {
             $this->loadModel('Notification');
             $this->Notification->savewithjob($this->request->data); 
 
-
 			$this->Job->create();
 			if ($this->Job->save($this->request->data)) {
 				$this->Session->setFlash(__('The job has been saved.'));
@@ -111,12 +110,8 @@ class JobsController extends AppController {
 				$this->Session->setFlash(__('The job could not be saved. Please, try again.'));
 			}
 		}
-        /* this will retrive a list of user ids.... not that useful */
-		$userlist = $this->Job->User->find('list');
-
-        /* collect all usernames to present for notifications select box */
-        $users = $this->Job->User->compilelist();
-
+		$userlist = $this->Job->User->find('list'); /* this will retrive a list of user ids.... not that useful */
+        $users = $this->Job->User->compilelist(); /* collect all usernames to present for notifications select box */
 		$envelopes = $this->Job->Envelope->find('list');
 		$jobtypes = $this->Job->Jobtype->find('list');
 		$this->set(compact('userlist', 'users', 'envelopes', 'jobtypes'));
