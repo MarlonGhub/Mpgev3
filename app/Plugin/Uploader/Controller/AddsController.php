@@ -164,8 +164,8 @@ class AddsController extends UploaderAppController {
 #######################################################################
 	public function _sizecheck($dir,$data,$count){
 		$totalsize = 0;
-		debug($count);
-		debug($data);die;
+//		debug($count);
+//		debug($data);die;
 		for ($i = 0; $i <= $count-1; $i++){
 
 		}
