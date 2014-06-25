@@ -5,6 +5,7 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('capnumber'); ?></th>
+			<th><?php echo $this->Paginator->sort('pgeid'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('qty'); ?></th>
 			<th><?php echo $this->Paginator->sort('duedate'); ?></th>
@@ -21,6 +22,7 @@
 	<tr>
 		<td><?php echo h($job['Job']['id']); ?>&nbsp;</td>
 		<td><?php echo h($job['Job']['capnumber']); ?>&nbsp;</td>
+		<td><?php echo h($job['Job']['pgeid']); ?>&nbsp;</td>
 		<td><?php echo h($job['Job']['name']); ?>&nbsp;</td>
 		<td><?php echo h($job['Job']['qty']); ?>&nbsp;</td>
 		<td><?php echo h($job['Job']['duedate']); ?>&nbsp;</td>

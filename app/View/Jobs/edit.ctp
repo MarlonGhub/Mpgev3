@@ -5,6 +5,7 @@
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('capnumber');
+		echo $this->Form->input('pgeid');
 		echo $this->Form->input('name');
 		echo $this->Form->input('qty');
 		echo $this->Form->input('duedate');
