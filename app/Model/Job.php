@@ -12,6 +12,18 @@ App::uses('AppModel', 'Model');
  */
 class Job extends AppModel {
 
+    //initialize CakeDC search plugin
+    public $actsAs = array('Search.Searchable');
+    public $filterArgs = array(
+        'pgeid' => array(
+            'type' => 'like',
+            'field' => 'Jobs.pgeid'
+        ),
+        'status' => array(
+            'type' => 'value',
+            'field' => 'Jobs.status'
+        ), 
+    );
 /**
  * Validation rules
  *
@@ -127,5 +139,7 @@ class Job extends AppModel {
 			'counterQuery' => ''
 		)
 	);
+
+
 
 }

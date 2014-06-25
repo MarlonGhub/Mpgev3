@@ -13,7 +13,17 @@ class JobsController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('Paginator', 'Session', 'Search.Prg');
+
+
+/**
+ * Search Plugin
+ */
+    public function searchjobs() {
+        $this->Prg->commonProcess();
+        $this->Paginator->settings['conditions'] = $this->Job->parseCriteria($this->Prg->parsedParams());
+        $this->set('jobs', $this->Paginator->paginate());
+    }
 
 /**
  * index method

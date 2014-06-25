@@ -4,7 +4,7 @@
 ?>
 <script>
     $(document).ready(function() {
-        //DATEPICKER LOGIC
+        //BEGIN DATEPICKER LOGIC
         $(':input[name=JobDuedate]').change(function(){
             if ($(this.val().match(/^Sa/gi)))
             {
@@ -14,6 +14,7 @@
             } else {
             }
         });
+        //END DATEPICKER LOGIC
     });
 </script>
 <div class="jobs form">
