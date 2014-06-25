@@ -19,7 +19,7 @@
 				<?php
 					echo $this->Form->input('pgeid', array('class' => 'col-md-6', 'div' => false, 'type' => 'text', 'label' => false, 'style' => 'clear:none; line-height:10pt;'));
 					echo $this->Form->submit(__('Search'), array( 'div' => false, 'style' => 'line-height: 23pt;'));
-		            echo '<a href="'.$app_path.'jobs" class="btn btn-danger" style="line-height: 19pt; margin-top:-4px">Clear</a>';
+		            echo '<a href="'.$app_path.'jobs" class="btn btn-danger" style="line-height: 19pt; margin-top:-4px; color:white;">Clear</a>';
 		            echo $this->Form->end();
 		        ?>
 				<?php

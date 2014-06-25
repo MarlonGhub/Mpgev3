@@ -43,9 +43,9 @@ $app_path = Router::url('/');
 		echo $this->Html->css('jquery.datetimepicker');
 		echo $this->HTml->css('style.override');
 
-		echo $this->Html->script('bootstrap.min');
-        echo $this->Html->script('jquery-1.11.0.min');
+		echo $this->Html->script('jquery-1.11.0.min');
         echo $this->Html->script('jquery.datetimepicker');
+		echo $this->Html->script('bootstrap.min');
         echo $this->Html->script('code39');
         echo $this->Html->script('sitewide');
 

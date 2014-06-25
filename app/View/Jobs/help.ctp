@@ -1,9 +1,15 @@
-<?php $app_path = Router::url('/'); ?>   
+<?php $app_path = Router::url('/'); ?>
+
+<style>
+    li {
+        color: black;
+    }
+</style>
 
 <!--=== Breadcrumbs ===-->
 <div class="breadcrumbs margin-bottom-40">
     <div class="container">
-        <h1 class="pull-left">Help Section</h1>
+        <h1 class="pull-left headline"><strong>Help Section</strong></h1>
         <!-- <ul class="pull-right breadcrumb">
             <li><a href="../jobs">Home</a></li>
             <li class="active">Help</li>
@@ -21,13 +27,13 @@
             <div class="panel-group acc-v1 margin-bottom-40" id="accordion">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                        <h3 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" style="background-color: lightgrey;">
                                 1. How do I sign up as a new user?
                             </a>
-                        </h4>
+                        </h3>
                     </div>
-                    <div id="collapseOne" class="panel-collapse collapse in">
+                    <div id="collapseOne" class="panel-collapse collapse">
                         <div class="panel-body">
                             As of the present time, creating a new user is handled by emailing the IT Department and going through a quick review process. In the near future, creating a new user will be an available option on the login page.<br/>
                             <small style="float:right;"><i>- Posted by</i><b> Admin </b><i>(June 4, 2014)</i></small>
@@ -37,11 +43,11 @@
 
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                        <h3 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" style="background-color: lightgrey;">
                                 2. How do I place a new order?
                             </a>
-                        </h4>
+                        </h3>
                     </div>
                     <div id="collapseTwo" class="panel-collapse collapse">
                         <div class="panel-body">
@@ -54,26 +60,37 @@
                     </div>
                 </div>
 
-                <!-- <div class="panel panel-default">
+                <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                                3. Enim eiusmod high life accusamus terry richardson?
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" style="background-color: lightgrey;">
+                                3. What are the job order timelines?
                             </a>
                         </h4>
                     </div>
                     <div id="collapseThree" class="panel-collapse collapse">
                         <div class="panel-body">
-                            <p>Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Food truck quinoa nesciunt laborum eiusmodolf moon tempor, sunt aliqua put a bird.</p>
-                            <ul class="list-unstyled">
-                                <li><i class="icon-ok color-green"></i> Donec id elit non mi porta gravida at eget metus..</li>
-                                <li><i class="icon-ok color-green"></i> Fusce dapibus, tellus ac cursus comodo egetine..</li>
-                            </ul>                            
+                            <h4><u>Monday Thru Thursday</u></h4>
+                            <ul>
+                                <li>24 hours for proofing, data work, mail merge, invoicing</li>
+                                <li>24 hours for production on jobs less than 20,000 pcs</li>
+                                <li>48 hours for production on color jobs and/ or jobs over 20,000 pcs</li>
+                            </ul>
+                            <h4><u>Friday for Friday delivery</u></h4>
+                            <ul>
+                                <li>Job must be uploaded by 11am, proof to you by 2pm</li>
+                                <li>Proof approved by 3pm</li>
+                            </ul>
+                            <h4><u>Friday for Saturday delivery</u></h4>
+                            <ul>
+                                <li>Job must be uploaded by 12pm proof to you by 3pm</li>
+                                <li>Proof approved by 4pm</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
-                <div class="panel panel-default">
+                <!-- <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
@@ -231,11 +248,11 @@
 		<div class="col-md-3">
         	<!-- Contacts -->
             <div class="headline"><h2>Tutorial Videos (Coming Soon)</h2></div>
-            <ul class="list-unstyled who margin-bottom-30">
-                <li><a href="#"><i class="icon-facetime-video"></i>Basics: Creating New User</a></li>
-                <li><a href="#"><i class="icon-facetime-video"></i>Basics: Jobs Actions</a></li>
-                <li><a href="#"><i class="icon-facetime-video"></i>Basics: New Vendor/Client</a></li>
-            </ul>
+            <ol class="who margin-bottom-30">
+                <li><a href="#">Basics: Creating New User</a></li>
+                <li><a href="#">Basics: Jobs Actions</a></li>
+                <li><a href="#">Basics: New Vendor/Client</a></li>
+            </ol>
             <!-- End Contacts -->
 
         </div><!--/col-md-3-->            		
@@ -290,11 +307,6 @@
                     2014 &copy;. 
                     <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
                 </p>
-            </div>
-            <div class="col-md-6">  
-                <a href="index.html">
-                    <img id="logo-footer" src="assets/img/logo2-default.png" class="pull-right" alt="" />
-                </a>
             </div>
         </div><!--/row-->
     </div><!--/container--> 
