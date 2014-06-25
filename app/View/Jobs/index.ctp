@@ -8,22 +8,20 @@
         <!--Begin Content-->
         <div class="col-md-12">
 
-        	<div class="searchform">
+        	<div class="searchform" style="border: 1px solid grey; border-right:none; width:180px; margin-left:-180px;">
 		        <?php
-		            echo $this->Form->create('Job', array('role' => 'form', 'class' => 'form-horizontal', 'url' => 
+		            echo $this->Form->create('Job', array('url' => 
 		                array_merge( 
 		                    array( 'action' => 'searchjob'), $this->params['pass']
 		            )));
 		        ?>
 		        	<div class="form-group">
-		        		<label class="col-md-2" for="name" style="float:right;">Enter ID to Search:</label>
-		        		<div class="col-md-6" style="float:right;">
-		        		<?php echo $this->Form->input('pgeid', array( 'div' => false, 'type' => 'text', 'label' => false)); ?>
-						</div>
-						<div class="col-md-2">
-							<?php
+		        		<div style="width:160px;">
+		        			<label for="name" style="float:left;">Enter ID to Search:</label>
+		        			<?php
+		        				echo $this->Form->input('pgeid', array( 'div' => false, 'type' => 'text', 'label' => false));
 								echo $this->Form->submit(__('Search'), array( 'div' => false, 'class' => 'btn-sm'));
-					            echo '<a href="'.$app_path.'jobs" class="btn btn-danger">Clear</a>';
+					            echo '<a href="'.$app_path.'jobs" class="btn btn-danger pull-right">Clear</a>';
 					            echo $this->Form->end();
 					        ?>
 						</div>
@@ -44,7 +42,7 @@
 	    	<div class="clearfix"></div>
 
         	<!--Basic Table-->
-			<div class="panel panel-grey margin-bottom-40">
+			<div class="panel panel-grey margin-bottom-40" style="margin-top:-142px;">
 				<div class="panel-heading">
 					<h3 class="panel-title"><strong> Jobs</strong></h3>
 				</div>
