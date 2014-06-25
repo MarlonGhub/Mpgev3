@@ -91,11 +91,17 @@ class JobsController extends AppController {
             /* ensure job id is contained in this request data */
             $this->request->data['Job']['id'] = $id;
 
-            debug($this->request->data);//die;
-            /* Save note and job id in Notes table */
+            /*debug*/
+            debug($this->request->data);die;
 
+            /* Save note and job id in Notes table */
             $this->loadModel('Note');
             $this->Note->savewithjob($this->request->data);
+
+            /* Save notification with job id */
+            $this->loadModel('Notification');
+            $this->Notification->savewithjob($this->request->data); 
+
 
 			$this->Job->create();
 			if ($this->Job->save($this->request->data)) {
