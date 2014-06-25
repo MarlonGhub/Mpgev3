@@ -153,21 +153,27 @@ class User extends AppModel {
 
     /**
      * compilelist of all users
-     * @return array k => fname.lname
+     * @return array array k => fname.lname
+     *
+     * Because the return is in 2 arrays, 2 foreach loops are required in the
+     * view to access user id and names
      */
     public function compilelist(){
-        $this->recursive = -1;
-        $conditions = array();
-        $fields = array('User.fname', 'User.lname');
-        $options = array('conditions' => $conditions, 'fields' => $fields);
-        $userlist = $this->find('all', $options);
+        /*initialize variables */
         $username = array();
         $userfullname = array();
-        foreach ($userlist as $user){
-            $username = $user['User']['fname'].' '.$user['User']['lname'];
-            array_push($userfullname, $username);
-        }
 
+        $this->recursive = -1;
+        $conditions = array();
+        $fields = array('User.id', 'User.fname', 'User.lname');
+        $options = array('conditions' => $conditions, 'fields' => $fields);
+        $userlist = $this->find('all', $options);
+
+        foreach ($userlist as $user){
+            $userid = $user['User']['id'];
+            $username = $user['User']['fname'].' '.$user['User']['lname'];
+            $userfullname[] = array($userid => $username);
+        }
         return($userfullname);
     }
 }
