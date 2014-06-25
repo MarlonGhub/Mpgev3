@@ -1,3 +1,21 @@
+<?php
+$app_path = Router::url('/');
+
+?>
+<script>
+    $(document).ready(function() {
+        //DATEPICKER LOGIC
+        $(':input[name=JobDuedate]').change(function(){
+            if ($(this.val().match(/^Sa/gi)))
+            {
+               $(this).css('border-color', 'red');
+               alert('test');
+               console.log('Due Date lands on Saturday.  Extra fees may apply.'); 
+            } else {
+            }
+        });
+    });
+</script>
 <div class="jobs form">
 <?php echo $this->Form->create('Job'); ?>
 	<fieldset>
