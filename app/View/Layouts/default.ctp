@@ -38,9 +38,10 @@ $app_path = Router::url('/');
 
 		echo $this->Html->css('cake.generic');
 		echo $this->Html->css('bootstrap.min');
+		echo $this->Html->css('style');
 		echo $this->Html->css('bootstrap-theme.min');
 		echo $this->Html->css('jquery.datetimepicker');
-		//echo $this->HTml->css('style.override');
+		echo $this->HTml->css('style.override');
 
 		echo $this->Html->script('bootstrap.min');
         echo $this->Html->script('jquery-1.11.0.min');
