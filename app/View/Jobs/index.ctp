@@ -26,15 +26,9 @@
 		<td><?php echo h($job['Job']['name']); ?>&nbsp;</td>
 		<td><?php echo h($job['Job']['qty']); ?>&nbsp;</td>
 		<td><?php echo h($job['Job']['duedate']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($job['User']['name'], array('controller' => 'users', 'action' => 'view', $job['User']['id'])); ?>
-		</td>
-		<td>
-			<?php echo $this->Html->link($job['Envelope']['name'], array('controller' => 'envelopes', 'action' => 'view', $job['Envelope']['id'])); ?>
-		</td>
-		<td>
-			<?php echo $this->Html->link($job['Jobtype']['name'], array('controller' => 'jobtypes', 'action' => 'view', $job['Jobtype']['id'])); ?>
-		</td>
+		<td> <?php echo $this->Html->link($job['User']['name'], array('controller' => 'users', 'action' => 'view', $job['User']['id'])); ?> </td>
+		<td> <?php echo $this->Html->link($job['Envelope']['name'], array('controller' => 'envelopes', 'action' => 'view', $job['Envelope']['id'])); ?> </td>
+		<td> <?php echo $this->Html->link($job['Jobtype']['name'], array('controller' => 'jobtypes', 'action' => 'view', $job['Jobtype']['id'])); ?> </td>
 		<td><?php echo h($job['Job']['created']); ?>&nbsp;</td>
 		<td><?php echo h($job['Job']['modified']); ?>&nbsp;</td>
 		<td class="actions">
@@ -63,7 +57,7 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New Job'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('New Job'), array('action' => 'preadd')); ?></li>
 		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Envelopes'), array('controller' => 'envelopes', 'action' => 'index')); ?> </li>

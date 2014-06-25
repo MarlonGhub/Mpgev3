@@ -1,5 +1,5 @@
 <?php
-$app_path = Router::url('/');
+    $app_path = Router::url('/');
 
 ?>
 <script>
