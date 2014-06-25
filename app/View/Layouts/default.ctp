@@ -55,8 +55,8 @@ $app_path = Router::url('/');
 	?>
 
 	<!--[if lt IE 9]>
-	  <?php //echo $this->Html->script('html5shiv.min'); ?>
-	  <?php //echo $this->Html->script('respond.min'); ?>
+	  <?php echo $this->Html->script('html5shiv.min'); ?>
+	  <?php echo $this->Html->script('respond.min'); ?>
 	<![endif]-->
 	
 </head>
