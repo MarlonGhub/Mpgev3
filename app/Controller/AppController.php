@@ -32,11 +32,22 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
  public $components = array(
-        'Auth' => array(
+ 	'Cookie',
+ 	'Session',
+ 	'DebugKit.Toolbar',
+           'Auth' => array(
             'authenticate' => array(
-                'Authenticate.MultiColumn' => array(
+                'Authenticate.Cookie' => array(
                     'fields' => array(
                         'username' => 'login',
+                        'password' => 'password'
+                    ),
+                    'userModel' => 'SomePlugin.User',
+                    'scope' => array('User.active' => 1)
+                ),
+                'Authenticate.MultiColumn' => array(
+                    'fields' => array(
+                        'username' => 'username',
                         'password' => 'password'
                     ),
                     'columns' => array('username', 'email'),
@@ -44,9 +55,14 @@ class AppController extends Controller {
                     'scope' => array('User.active' => 1)
                 )
             )
-        
-        ), 'Session'
+        )
+    
     );
+
+  public function beforeRender(){
+		$this->Cookie->type('rijndael');
+		//$this->layout = 'bootstrap';
+	}
 
 	
 }
