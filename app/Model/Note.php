@@ -51,4 +51,17 @@ class Note extends AppModel {
 			'order' => ''
 		)
 	);
+
+    public function savewithjob($data) {
+        $note['job_id'] = $data['Job']['id'];
+        $note['note'] = $data['Job']['note'];
+
+        $this->create();
+        if ($this->save($note)){
+            /* what do we need to do here? */ 
+        }else{
+            throw new NotFoundException(__('Unable to save Notes'));
+        }
+
+    }
 }
