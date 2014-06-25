@@ -1,0 +1,3 @@
+[submodule "app/Plugin/search"]
+	path = app/Plugin/search
+	url = git@github.com:CakeDC/search.git
