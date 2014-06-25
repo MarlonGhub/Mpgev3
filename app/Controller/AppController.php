@@ -32,9 +32,10 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
  public $components = array(
+ 	'DebugKit.Toolbar' => array('autoRun' => false),
  	'Cookie',
  	'Session',
- 	'DebugKit.Toolbar',
+ 	
            'Auth' => array(
             'authenticate' => array(
                 'Authenticate.Cookie' => array(
@@ -58,11 +59,6 @@ class AppController extends Controller {
         )
     
     );
-
-  public function beforeRender(){
-		$this->Cookie->type('rijndael');
-		//$this->layout = 'bootstrap';
-	}
 
 	
 }
