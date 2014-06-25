@@ -33,7 +33,6 @@
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('qty'); ?></th>
 			<th><?php echo $this->Paginator->sort('duedate'); ?></th>
-			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('envelope_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('jobtype_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
@@ -50,7 +49,6 @@
 		<td><?php echo h($job['Job']['name']); ?>&nbsp;</td>
 		<td><?php echo h($job['Job']['qty']); ?>&nbsp;</td>
 		<td><?php echo h($job['Job']['duedate']); ?>&nbsp;</td>
-		<td> <?php echo $this->Html->link($job['User']['name'], array('controller' => 'users', 'action' => 'view', $job['User']['id'])); ?> </td>
 		<td> <?php echo $this->Html->link($job['Envelope']['name'], array('controller' => 'envelopes', 'action' => 'view', $job['Envelope']['id'])); ?> </td>
 		<td> <?php echo $this->Html->link($job['Jobtype']['name'], array('controller' => 'jobtypes', 'action' => 'view', $job['Jobtype']['id'])); ?> </td>
 		<td><?php echo h($job['Job']['created']); ?>&nbsp;</td>

@@ -12,7 +12,7 @@ App::uses('SimplePasswordHasher', 'Controller/Component/Auth');
  */
 class User extends AppModel {
 
-
+    public $dispalyField = "username";
 
 	public function beforeSave($options = array()) {
         if (isset($this->data[$this->alias]['password'])) {
@@ -140,4 +140,40 @@ class User extends AppModel {
 		)
 	);
 
+    /**
+     * return formatted user name given a user id
+     * @param string id
+     * @return string user fname . user lname
+     */
+    public function resolveName($id) {
+        $user = $this->resolveUser($id);
+        $name = $user['User']['fname'].' '.$user['User']['lname'];
+        return $name;
+    }
+
+    /**
+     * compilelist of all users
+     * @return array array k => fname.lname
+     *
+     * Because the return is in 2 arrays, 2 foreach loops are required in the
+     * view to access user id and names
+     */
+    public function compilelist(){
+        /*initialize variables */
+        $username = array();
+        $userfullname = array();
+
+        $this->recursive = -1;
+        $conditions = array();
+        $fields = array('User.id', 'User.fname', 'User.lname');
+        $options = array('conditions' => $conditions, 'fields' => $fields);
+        $userlist = $this->find('all', $options);
+
+        foreach ($userlist as $user){
+            $userid = $user['User']['id'];
+            $username = $user['User']['fname'].' '.$user['User']['lname'];
+            $userfullname[] = array($userid => $username);
+        }
+        return($userfullname);
+    }
 }

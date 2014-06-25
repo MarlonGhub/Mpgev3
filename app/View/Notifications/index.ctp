@@ -8,6 +8,7 @@
 			<th><?php echo $this->Paginator->sort('pa'); ?></th>
 			<th><?php echo $this->Paginator->sort('js'); ?></th>
 			<th><?php echo $this->Paginator->sort('dn'); ?></th>
+			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
@@ -21,6 +22,7 @@
 		<td><?php echo h($notification['Notification']['pa']); ?>&nbsp;</td>
 		<td><?php echo h($notification['Notification']['js']); ?>&nbsp;</td>
 		<td><?php echo h($notification['Notification']['dn']); ?>&nbsp;</td>
+		<td><?php echo h($notification['Notification']['user_id']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $notification['Notification']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $notification['Notification']['id'])); ?>
