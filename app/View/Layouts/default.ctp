@@ -15,6 +15,10 @@
  * @since         CakePHP(tm) v 0.10.0.1076
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
+$loc = ROOT;
+$tokens = explode('/', $loc);
+$app = $tokens[sizeof($tokens)-1];
+$app_path = Router::url('/');
 
 ?>
 <!DOCTYPE html>
@@ -24,15 +28,21 @@
 	<title>
 		<?php echo $title_for_layout; ?>
 	</title>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
 
 	<?php
 		echo $this->Html->meta('icon');
 
 		echo $this->Html->css('cake.generic');
+		echo $this->Html->css('bootstrap.min');
+		echo $this->Html->css('bootstrap-theme.min');
 		echo $this->Html->css('jquery.datetimepicker');
-		echo $this->HTml->css('style.override');
+		//echo $this->HTml->css('style.override');
 
+		echo $this->Html->script('bootstrap.min');
         echo $this->Html->script('jquery-1.11.0.min');
         echo $this->Html->script('jquery.datetimepicker');
         echo $this->Html->script('code39');
@@ -42,6 +52,12 @@
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
+
+	<!--[if lt IE 9]>
+	  <?php echo $this->Html->script('html5shiv.min'); ?>
+	  <?php echo $this->Html->script('respond.min'); ?>
+	<![endif]-->
+	
 </head>
 <body>
 	<?php echo $this->Element('navigation'); ?>

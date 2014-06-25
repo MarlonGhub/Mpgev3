@@ -46,20 +46,8 @@
 
 		<!-- if ($this->Session->check('Auth.User')) { -->
 
-			<li class="pull-left"><a href="<?php echo $app_path.'jobs';?>">JOBS</a></li>
-			<li class="pull-left"><a href="<?php echo $app_path.'jobs/preadd';?>">UPLOAD JOB</a></li>
-
-
-			<li class="pull-right"><?php echo $this->Html->link('SIGN OUT', array('controller'=>'users', 'action'=>'logout'));?></li>
-            <li class="pull-right"><a class="dropdown" data-toggle="dropdown" href="#">ADMIN</a>
-				<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-					<span class="glyphicon glyphicon-earphone"></span>&nbsp;User Info<br/>
-					<?php echo $this->Html->link('Users', array('controller'=>'users', 'action'=>'index', 'plugin'=>'')); ?><br/>
-					<?php echo $this->Html->link('New User', array('controller'=>'users', 'action'=>'add', 'plugin'=>'')); ?><br/>
-					<?php echo $this->Html->link('Contacts', array('controller'=>'contacts', 'action'=>'index', 'plugin'=>'')); ?><br/>
-					<?php echo $this->Html->link('Email Groups', array('controller'=>'emailgroups', 'action'=>'index', 'plugin'=>'')); ?><br/>
-				</ul>
-			</li>
+			<li><a href="<?php echo $app_path.'jobs';?>">JOBS</a></li>
+			<li><a href="<?php echo $app_path.'jobs/preadd';?>">UPLOAD JOB</a></li>
 
 		<?php //} ?>
 
@@ -67,4 +55,26 @@
 
 	</div><!--close div navbar-collapse-->
 
+	<div class="push-down collapse navbar-collapse pull-right col-md-12 col-sm-12 col-xs-12">
+		<ul class="nav navbar-nav">
+
+		<!-- if ($this->Session->check('Auth.User')) { -->
+
+			<li class="pull-right"><?php echo $this->Html->link('SIGN OUT', array('controller'=>'users', 'action'=>'logout'));?></li>
+			<li class="pull-right"><?php echo $this->Html->link('HELP', array('controller'=>'jobs', 'action'=>'help'));?></li>
+            <li><a class="dropdown" data-toggle="dropdown" href="#">ADMIN</a>
+				<!-- <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+					<span class="glyphicon glyphicon-earphone"></span>&nbsp;User Info<br/>
+					<?php echo $this->Html->link('Users', array('controller'=>'users', 'action'=>'index', 'plugin'=>'')); ?><br/>
+					<?php echo $this->Html->link('New User', array('controller'=>'users', 'action'=>'add', 'plugin'=>'')); ?><br/>
+					<?php echo $this->Html->link('Contacts', array('controller'=>'contacts', 'action'=>'index', 'plugin'=>'')); ?><br/>
+					<?php echo $this->Html->link('Email Groups', array('controller'=>'emailgroups', 'action'=>'index', 'plugin'=>'')); ?><br/>
+				</ul> -->
+			</li>
+
+		<?php //} ?>
+
+		</ul><!-- close ul nav -->
+
+	</div><!--close div navbar-collapse-->
 </div><!--close div container -->
