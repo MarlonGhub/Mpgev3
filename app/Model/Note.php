@@ -54,8 +54,8 @@ class Note extends AppModel {
 
     public function savewithjob($data) {
         /* get envelope name */
-        $db = ClassRegistry::init('Envelope');
-        $envelope = $db->getname($data['Job']['envelope_id']);
+        $db_envelope = ClassRegistry::init('Envelope');
+        $envelope = $db_envelope->getname($data['Job']['envelope_id']);
         
         /* create array to save into notes */
         $note['job_id'] = $data['Job']['id'];
