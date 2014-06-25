@@ -1,3 +1,6 @@
+<?php
+    $app_path = Router::url('/');
+?>
 <div class="jobs index">
     <div class="searchform">
         <?php
@@ -16,6 +19,7 @@
             ));
              */
             echo $this->Form->submit(__('Search'), array( 'div' => false));
+            echo '<a href="'.$app_path.'jobs" class="btn btn-danger">Clear</a>';
             echo $this->Form->end();
         ?>
     </div>

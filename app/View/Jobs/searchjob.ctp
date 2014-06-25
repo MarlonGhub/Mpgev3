@@ -1,4 +1,28 @@
+<?php
+    $app_path = Router::url('/');
+?>
 <div class="jobs index">
+    <div class="searchform">
+        <?php
+            echo $this->Form->create('Job', array( 'url' => 
+                array_merge( 
+                    array( 'action' => 'searchjob'), $this->params['pass']
+            )));
+            echo $this->Form->input('pgeid', array( 'div' => false, 'type' => 'text'));
+            /*
+            echo $this->Form->input('status', array(
+                'div' => false,
+                'multiple' => 'checkbox',
+                'options' => array(
+                    'review', 'production', 'done'
+                )
+            ));
+             */
+            echo $this->Form->submit(__('Search'), array( 'div' => false));
+            echo '<a href="'.$app_path.'jobs" class="btn btn-danger">Clear</a>';
+            echo $this->Form->end();
+        ?>
+    </div>
 	<h2><?php echo __('Jobs'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<thead>
