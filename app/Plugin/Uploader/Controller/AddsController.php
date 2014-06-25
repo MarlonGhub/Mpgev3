@@ -166,7 +166,7 @@ class AddsController extends UploaderAppController {
 		$totalsize = 0;
 		debug($count);
 		debug($data);die;
-		for ($i = 0; $i <= $count; $i++){
+		for ($i = 0; $i <= $count-1; $i++){
 
 		}
 
