@@ -104,6 +104,40 @@ class JobsController extends AppController {
 
 			$this->Job->create();
 			if ($this->Job->save($this->request->data)) {
+
+                ####################################
+                # Save Data into CMS Jobs database #
+                ####################################
+                $this->loadModel('Cmsjob');
+                $save_data['Cmsjob'] = $this->Cmsjob->compile_data($this->request->data);
+                $this->Cmsjob->create();
+                $this->Cmsjob->save($save_data);
+
+                /* get capnumber from jobs table in CMS */
+                $CMS_id = $this->Cmsjob->getInsertId();
+
+                /* this saves capnumber in jobs */
+                $this->Job->saveField('capnumber', $CMS_id);
+
+                ########################################
+                # Save Data into CMS jobstats database #
+                ########################################
+                $this->loadModel('Cmsjobstats');
+                $compiled_stats_data = $this->Cmsjobstats->compile_data($CMS_id);
+                $this->Cmsjobstats->create($compiled_stats_data);			 
+                $this->Cmsjobstats->save($this->request->data); 
+
+                ############################################
+                # Save Data into CMS coordinators database #
+                ############################################
+                $this->loadModel('Cmscoordinator');
+                $mycoord['Cmscoordinator']['job_id']= $CMS_id;
+                $mycoord['Cmscoordinator']['user_id']= 7215;
+                $mycoord['Cmscoordinator']['company_id']= 3931;
+                $mycoord['Cmscoordinator']['parent_company_id']= 1435;
+                $this->Cmscoordinator->create($mycoord);
+                $this->Cmscoordinator->save($this->request->data);
+
 				$this->Session->setFlash(__('The job has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
