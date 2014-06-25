@@ -44,12 +44,12 @@
 	<div class="push-down collapse navbar-collapse pull-left col-md-12 col-sm-12 col-xs-12">
 		<ul class="nav navbar-nav">
 
-		<!-- if ($this->Session->check('Auth.User')) { -->
+		<?php if ($this->Session->check('Auth.User')) { ?>
 
 			<li><a href="<?php echo $app_path.'jobs';?>">JOBS</a></li>
 			<li><a href="<?php echo $app_path.'jobs/preadd';?>">UPLOAD JOB</a></li>
 
-		<?php //} ?>
+		<?php } ?>
 
 		</ul><!-- close ul nav -->
 
@@ -58,7 +58,7 @@
 	<div class="push-down collapse navbar-collapse pull-right col-md-12 col-sm-12 col-xs-12">
 		<ul class="nav navbar-nav">
 
-		<!-- if ($this->Session->check('Auth.User')) { -->
+		<?php if ($this->Session->check('Auth.User')) { ?>
 
 			<li class="pull-right"><?php echo $this->Html->link('SIGN OUT', array('controller'=>'users', 'action'=>'logout'));?></li>
 			<li class="pull-right"><?php echo $this->Html->link('HELP', array('controller'=>'jobs', 'action'=>'help'));?></li>
@@ -72,7 +72,7 @@
 				</ul> -->
 			</li>
 
-		<?php //} ?>
+		<?php } ?>
 
 		</ul><!-- close ul nav -->
 

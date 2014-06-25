@@ -21,9 +21,9 @@
 				$options = array('label' => 'Login', 'class' => 'btn btn-primary');
 				echo $this->Form->end($options);
 			?>
-			<div id="new_client">
+			<!-- <div id="new_client">
 				<?php echo $this->Html->link('Register Here',array('controller'=>'users','action'=>'preadd')); ?>
-			</div>
+			</div> -->
 		</div>
 		<div class="clearfix"></div>
 	</div>

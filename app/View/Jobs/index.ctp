@@ -16,10 +16,11 @@
 		            )));
 		        ?>
 		        	<div class="form-group">
-						<label class="col-md-2 control-label pull-left" for="name">Enter ID to Search:</label>
-						<div class="col-md-2 pull-right"><?php echo $this->Form->input('pgeid', array( 'div' => false, 'type' => 'text', 'label' => false)); ?>
+		        		<label class="col-md-2" for="name" style="float:right;">Enter ID to Search:</label>
+		        		<div class="col-md-6" style="float:right;">
+		        		<?php echo $this->Form->input('pgeid', array( 'div' => false, 'type' => 'text', 'label' => false)); ?>
 						</div>
-						<div class="col-md-2 pull-right">
+						<div class="col-md-2">
 							<?php
 								echo $this->Form->submit(__('Search'), array( 'div' => false, 'class' => 'btn-sm'));
 					            echo '<a href="'.$app_path.'jobs" class="btn btn-danger">Clear</a>';
