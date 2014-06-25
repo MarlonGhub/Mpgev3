@@ -31,4 +31,38 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+ public $components = array(
+ 	'Cookie',
+ 	'Session',
+ 	'DebugKit.Toolbar',
+           'Auth' => array(
+            'authenticate' => array(
+                'Authenticate.Cookie' => array(
+                    'fields' => array(
+                        'username' => 'login',
+                        'password' => 'password'
+                    ),
+                    'userModel' => 'SomePlugin.User',
+                    'scope' => array('User.active' => 1)
+                ),
+                'Authenticate.MultiColumn' => array(
+                    'fields' => array(
+                        'username' => 'username',
+                        'password' => 'password'
+                    ),
+                    'columns' => array('username', 'email'),
+                    'userModel' => 'User',
+                    'scope' => array('User.active' => 1)
+                )
+            )
+        )
+    
+    );
+
+  public function beforeRender(){
+		$this->Cookie->type('rijndael');
+		//$this->layout = 'bootstrap';
+	}
+
+	
 }
