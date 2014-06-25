@@ -92,7 +92,7 @@ class JobsController extends AppController {
             $this->request->data['Job']['id'] = $id;
 
             /*debug*/
-            debug($this->request->data);die;
+            debug($this->request->data);//die;
 
             /* Save note and job id in Notes table */
             $this->loadModel('Note');

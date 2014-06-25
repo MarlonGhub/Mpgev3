@@ -72,4 +72,15 @@ class Notification extends AppModel {
 		)
 	);
 
+    /**
+     * save data from job add into the notifications table
+     */
+    public function savewithjob($data){
+        /* set job_id for notification */
+        $data['Notification']['job_id'] = $data['Job']['id'];
+        $this->create();
+        if(!$this->save($data['Notification'])){
+            throw new NotFoundException(__('Unable to save notification'));
+        }
+    }
 }
