@@ -1,6 +1,5 @@
 <?php
     $app_path = Router::url('/');
-
 ?>
 <script>
     $(document).ready(function() {
@@ -33,6 +32,20 @@
 		echo $this->Form->input('envelope_id');
         echo $this->Form->input('note', array('type' => 'textarea'));
 	?>
+        <fieldset>
+            <legend>Notifications</legend>
+            <input type="checkbox" id="data[Notification][pa]" name="data[Notification][pa]" />Proof Approval<span class="glyphicon glyphicon-question-sign"></span><br/>
+            <input type="checkbox" id="data[Notification][js]" name="data[Notification][js]" />Job Shipping<span class="glyphicon glyphicon-question-sign"></span><br/>
+            <input type="checkbox" id="data[Notification][dn]" name="data[Notification][dn]" />Delivery Notification<span class="glyphicon glyphicon-question-sign"></span><br/>
+            <select id="data[User][name]" name="data[User][name">
+                <option value=""> - Please Select a User -</option>
+                <?php
+                    foreach($users as $k => $v){
+                        echo '<option value='.$k.'>'.$v.'</option>';
+                    }
+                ?>
+            </select>
+        </fieldset>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>

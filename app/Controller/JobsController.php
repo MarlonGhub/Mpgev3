@@ -105,10 +105,15 @@ class JobsController extends AppController {
 				$this->Session->setFlash(__('The job could not be saved. Please, try again.'));
 			}
 		}
-		$users = $this->Job->User->find('list');
+        /* this will retrive a list of user ids.... not that useful */
+		$userlist = $this->Job->User->find('list');
+
+        /* collect all usernames to present for notifications select box */
+        $users = $this->Job->User->compilelist();
+
 		$envelopes = $this->Job->Envelope->find('list');
 		$jobtypes = $this->Job->Jobtype->find('list');
-		$this->set(compact('users', 'envelopes', 'jobtypes'));
+		$this->set(compact('userlist', 'users', 'envelopes', 'jobtypes'));
 	}
 
 /**
