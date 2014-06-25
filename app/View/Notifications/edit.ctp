@@ -8,6 +8,7 @@
 		echo $this->Form->input('pa');
 		echo $this->Form->input('js');
 		echo $this->Form->input('dn');
+		echo $this->Form->input('user_id');
 		echo $this->Form->input('Emailgroup');
 	?>
 	</fieldset>

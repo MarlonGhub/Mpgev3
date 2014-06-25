@@ -52,10 +52,15 @@ class Note extends AppModel {
 		)
 	);
 
+    /**
+     * savewithjob method - saves data input into the notes section with job add
+     * @param array $data = $this->request->data
+     * @return void
+     */
     public function savewithjob($data) {
         /* get envelope name */
-        $db = ClassRegistry::init('Envelope');
-        $envelope = $db->getname($data['Job']['envelope_id']);
+        $db_envelope = ClassRegistry::init('Envelope');
+        $envelope = $db_envelope->getname($data['Job']['envelope_id']);
         
         /* create array to save into notes */
         $note['job_id'] = $data['Job']['id'];
