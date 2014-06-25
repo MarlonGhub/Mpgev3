@@ -34,7 +34,7 @@ $app_path = Router::url('/');
     <meta name="viewport" content="width=device-width">
 
 	<?php
-		echo $this->Html->meta('icon');
+		
 
 		echo $this->Html->css('cake.generic');
 		echo $this->Html->css('bootstrap.min');
@@ -48,23 +48,23 @@ $app_path = Router::url('/');
         echo $this->Html->script('code39');
         echo $this->Html->script('sitewide');
 
-		echo $this->fetch('meta');
+		
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
 
 	<!--[if lt IE 9]>
-	  <?php echo $this->Html->script('html5shiv.min'); ?>
-	  <?php echo $this->Html->script('respond.min'); ?>
+	  <?php //echo $this->Html->script('html5shiv.min'); ?>
+	  <?php //echo $this->Html->script('respond.min'); ?>
 	<![endif]-->
 	
 </head>
 <body>
-	<?php echo $this->Element('navigation'); ?>
+	
 	<div id="container">
 
 		<div id="content">
-
+			<?php echo $this->Element('navigation'); ?>
 			<?php echo $this->Session->flash(); ?>
 
 			<?php echo $this->fetch('content'); ?>

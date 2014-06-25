@@ -8,6 +8,11 @@ App::uses('AppController', 'Controller');
  */
 class UsersController extends AppController {
 
+
+	public function beforeFilter(){
+		$this->Auth->allow('add','newclient','preadd');
+			}
+
 /**
  * Components
  *
@@ -23,6 +28,23 @@ class UsersController extends AppController {
 	public function index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->Paginator->paginate());
+	}
+
+
+	public function login() {
+        if ($this->Auth->loggedIn() || $this->Auth->login()) {
+            //$this->_setCookie();
+            $this->redirect($this->Auth->redirect(array('controller' => 'jobs', 'action' => 'index')));
+        }
+    }
+
+    
+	public function logout() {
+	$this->Auth->logout();
+	$this->Cookie->delete('User');
+    $this->Session->delete('mystique');
+	$this->Session->setFlash('Logged out');
+	$this->redirect($this->Auth->redirect('/'));
 	}
 
 /**

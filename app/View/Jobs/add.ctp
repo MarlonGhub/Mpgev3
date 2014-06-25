@@ -24,13 +24,14 @@
 	<?php
 		//echo $this->Form->input('capnumber');
 		echo $this->Form->input('name');
-		echo $this->Form->input('pgeid');
+		echo $this->Form->input('pgeid', array('type' => 'text'));
         echo $this->Form->input('duedate', array('class' => 'datepicker', 'type' => 'text', 'div' => false));//, 'label' => false, 'value' => $job['Job']['duedate']));
 		//echo $this->Form->input('duedate');
 		echo $this->Form->input('qty');
 		//echo $this->Form->input('user_id');
 		echo $this->Form->input('jobtype_id');
 		echo $this->Form->input('envelope_id');
+        echo $this->Form->input('note', array('type' => 'textarea'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

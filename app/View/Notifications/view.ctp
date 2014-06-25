@@ -26,6 +26,11 @@
 			<?php echo h($notification['Notification']['dn']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('User Id'); ?></dt>
+		<dd>
+			<?php echo h($notification['Notification']['user_id']); ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">
