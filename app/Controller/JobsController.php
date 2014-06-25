@@ -141,4 +141,12 @@ class JobsController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+
+/**
+ * help method
+ *
+ * @return void
+ */
+	public function help() {
+	}
 }
