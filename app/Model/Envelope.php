@@ -64,4 +64,17 @@ class Envelope extends AppModel {
 		)
 	);
 
+    public function getname($id) {
+        $this->recursive = -1;
+
+        /* find options */
+        $conditions = array('Envelope.id' => $id);
+        $fields = ('Envelope.name');
+        $options = array('conditions' => $conditions, 'fields' => $fields);
+
+        /* find */
+        $envelope_name = $this->find('first', $options);
+
+        return $envelope_name['Envelope']['name'];
+    }
 }
