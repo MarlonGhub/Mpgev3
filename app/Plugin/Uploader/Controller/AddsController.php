@@ -41,6 +41,7 @@ class AddsController extends UploaderAppController {
 	*/		
 			$count = count($this->request->data['Add'])-1;
 			$count = $this->_emptyupload($count,$id,$this->request->data);
+			
 
 	
 	/*	The upload portion moves $this->request data by array number $i which refers
@@ -71,25 +72,34 @@ class AddsController extends UploaderAppController {
 ###########################################################
 
 	public function _dbwrite($data,$dir,$i){
+	
 	// Sets file name from $this->request->data passed in
 		$filename = $data['Add']['submittedfile'.$i]['name'];
+	
 	//Sets path in string format to be written to DB	
 		$dir = $dir.DS.$filename;
+	
 	//Filesize
 		$filesize = $data['Add']['submittedfile'.$i]['size'];
+	
 	//Loads and uses model name set at the beginning of the controller.	
 		$mname = $this->modelname;
 		$this->loadModel($mname);
+	
 	/*Populates $databasematch to match column names in db and doesn't 
 	and creates the size by number of columns in db.
 	*/	
 		$databasematch = array_keys($this->$mname->getColumnTypes($mname));
+	
 	//Pops off the 'id' auto-incrementing column from the beginning of the array	
 		array_shift($databasematch);
+	
 	// Sets an array with the for CakePHP save db save syntax
 		$arr = array($mname);
+	
 	//Fills the column type arrays with empty values 	
 		$databasematch = array_fill_keys($databasematch, '');
+	
 	/* Combines array with first element as the Model name as needed by 
 	CakePHP for proper database writing.
 	*/
@@ -128,25 +138,47 @@ class AddsController extends UploaderAppController {
 			if(($file['submittedfile'.$i]['error']) > 0){
 				return false;
 			}
-			
 		}
-		
 		return true;
-		
-
 	}
 
+#######################################################################
+#  A counter return based on error code found in $this->request->data #
+#######################################################################
 	public function _emptyupload ($count,$id=null,$data = array()){
+	// Creates Counter to set for uploader iterator in function upload
 		$counter = 0;
+	/*$count = number of items in the array. If we decided to add another upload 
+	form field in the view, it will adjust accordingly
+	*/
 		for ($i = 0; $i <= $count; $i++){
+		// If no errors exist. Increase the counter to signify a good upload
 			if($this->request->data['Add']['submittedfile'.$i]['error'] == 0){
 				$counter++;
-//debug($this->request->data['Add']['submittedfile'.$i]);
+			}
+			else {
+				$this->_failedfilenote($id,$this->request->data,$i);die;
 			}
 		}
 		return $counter;
-		//debug($test);
-		//debug($data);die;
+	}
+
+#######################################################################
+#  A counter return based on error code found in $this->request->data #
+#######################################################################
+	public function _failedfilenote($id=null,$data,$i){
+		$warning = array();
+		$errcode =$this->request->data['Add']['submittedfile'.$i]['error'];
+		$name = $this->request->data['Add']['submittedfile'.$i]['name'];
+		debug($errcode);
+		debug($name);
+	// If no errors exist. Increase the counter to signify a good upload
+		if( ($errcode > 0) && ($name !== '') ){
+			$warning = array( $i => $name.'did not upload.');
+		}
+	
+	debug($warning);
+
 	}
 
 
