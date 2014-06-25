@@ -10,7 +10,7 @@ class UsersController extends AppController {
 
 
 	public function beforeFilter(){
-		$this->Auth->allow('add','newclient','preadd');
+		$this->Auth->allow('add','newclient','preadd','login');
 			}
 
 /**
@@ -38,7 +38,7 @@ class UsersController extends AppController {
         }
     }
 
-    
+
 	public function logout() {
 	$this->Auth->logout();
 	$this->Cookie->delete('User');
