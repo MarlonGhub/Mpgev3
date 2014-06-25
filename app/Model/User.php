@@ -6,7 +6,6 @@ App::uses('AppModel', 'Model');
  * @property Group $Group
  * @property Emailgroup $Emailgroup
  * @property EmailgroupsNotification $EmailgroupsNotification
- * @property Group $Group
  * @property Job $Job
  * @property Emailgroup $Emailgroup
  */
@@ -78,19 +77,6 @@ class User extends AppModel {
 		),
 		'EmailgroupsNotification' => array(
 			'className' => 'EmailgroupsNotification',
-			'foreignKey' => 'user_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
-		'Group' => array(
-			'className' => 'Group',
 			'foreignKey' => 'user_id',
 			'dependent' => false,
 			'conditions' => '',
