@@ -78,6 +78,7 @@ class JobsController extends AppController {
 			throw new NotFoundException(__('Invalid job'));
 		}
 		if ($this->request->is('post')) {
+            $this->request->data['Job']['id'] = $id;
 			$this->Job->create();
 			if ($this->Job->save($this->request->data)) {
 				$this->Session->setFlash(__('The job has been saved.'));
