@@ -19,7 +19,7 @@ class JobsController extends AppController {
 /**
  * Search Plugin
  */
-    public function searchjobs() {
+    public function searchjob() {
         $this->Prg->commonProcess();
         $this->Paginator->settings['conditions'] = $this->Job->parseCriteria($this->Prg->parsedParams());
         $this->set('jobs', $this->Paginator->paginate());

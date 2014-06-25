@@ -17,11 +17,11 @@ class Job extends AppModel {
     public $filterArgs = array(
         'pgeid' => array(
             'type' => 'like',
-            'field' => 'Jobs.pgeid'
+            'field' => 'pgeid'
         ),
         'status' => array(
             'type' => 'value',
-            'field' => 'Jobs.status'
+            'field' => 'status'
         ), 
     );
 /**
