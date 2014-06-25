@@ -6,9 +6,14 @@
 			<?php echo h($user['User']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Name'); ?></dt>
+		<dt><?php echo __('Username'); ?></dt>
 		<dd>
-			<?php echo h($user['User']['name']); ?>
+			<?php echo h($user['User']['username']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Fname'); ?></dt>
+		<dd>
+			<?php echo h($user['User']['fname']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Email'); ?></dt>
@@ -44,6 +49,11 @@
 		<dt><?php echo __('Modified'); ?></dt>
 		<dd>
 			<?php echo h($user['User']['modified']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Lname'); ?></dt>
+		<dd>
+			<?php echo h($user['User']['lname']); ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -142,14 +152,12 @@
 	<tr>
 		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Name'); ?></th>
-		<th><?php echo __('User Id'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($user['Group'] as $group): ?>
 		<tr>
 			<td><?php echo $group['id']; ?></td>
 			<td><?php echo $group['name']; ?></td>
-			<td><?php echo $group['user_id']; ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View'), array('controller' => 'groups', 'action' => 'view', $group['id'])); ?>
 				<?php echo $this->Html->link(__('Edit'), array('controller' => 'groups', 'action' => 'edit', $group['id'])); ?>
@@ -173,6 +181,8 @@
 	<tr>
 		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Capnumber'); ?></th>
+		<th><?php echo __('Pgeid'); ?></th>
+		<th><?php echo __('Status'); ?></th>
 		<th><?php echo __('Name'); ?></th>
 		<th><?php echo __('Qty'); ?></th>
 		<th><?php echo __('Duedate'); ?></th>
@@ -187,6 +197,8 @@
 		<tr>
 			<td><?php echo $job['id']; ?></td>
 			<td><?php echo $job['capnumber']; ?></td>
+			<td><?php echo $job['pgeid']; ?></td>
+			<td><?php echo $job['status']; ?></td>
 			<td><?php echo $job['name']; ?></td>
 			<td><?php echo $job['qty']; ?></td>
 			<td><?php echo $job['duedate']; ?></td>

@@ -4,7 +4,8 @@
 	<thead>
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('name'); ?></th>
+			<th><?php echo $this->Paginator->sort('username'); ?></th>
+			<th><?php echo $this->Paginator->sort('fname'); ?></th>
 			<th><?php echo $this->Paginator->sort('email'); ?></th>
 			<th><?php echo $this->Paginator->sort('password'); ?></th>
 			<th><?php echo $this->Paginator->sort('group_id'); ?></th>
@@ -12,6 +13,7 @@
 			<th><?php echo $this->Paginator->sort('extension'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
+			<th><?php echo $this->Paginator->sort('lname'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
@@ -19,7 +21,8 @@
 	<?php foreach ($users as $user): ?>
 	<tr>
 		<td><?php echo h($user['User']['id']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['name']); ?>&nbsp;</td>
+		<td><?php echo h($user['User']['username']); ?>&nbsp;</td>
+		<td><?php echo h($user['User']['fname']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['email']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['password']); ?>&nbsp;</td>
 		<td>
@@ -29,6 +32,7 @@
 		<td><?php echo h($user['User']['extension']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['created']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['modified']); ?>&nbsp;</td>
+		<td><?php echo h($user['User']['lname']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $user['User']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $user['User']['id'])); ?>

@@ -1,16 +1,30 @@
 <?php
 App::uses('AppModel', 'Model');
+App::uses('SimplePasswordHasher', 'Controller/Component/Auth');
 /**
  * User Model
  *
  * @property Group $Group
  * @property Emailgroup $Emailgroup
  * @property EmailgroupsNotification $EmailgroupsNotification
- * @property Group $Group
  * @property Job $Job
  * @property Emailgroup $Emailgroup
  */
 class User extends AppModel {
+
+
+
+	public function beforeSave($options = array()) {
+        if (isset($this->data[$this->alias]['password'])) {
+            $passwordHasher = new SimplePasswordHasher();
+            $this->data[$this->alias]['password'] = $passwordHasher->hash(
+                $this->data[$this->alias]['password']
+            );
+        }
+        return true;
+
+        }
+
 
 /**
  * Validation rules
@@ -78,19 +92,6 @@ class User extends AppModel {
 		),
 		'EmailgroupsNotification' => array(
 			'className' => 'EmailgroupsNotification',
-			'foreignKey' => 'user_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
-		'Group' => array(
-			'className' => 'Group',
 			'foreignKey' => 'user_id',
 			'dependent' => false,
 			'conditions' => '',
