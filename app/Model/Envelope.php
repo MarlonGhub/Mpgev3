@@ -64,4 +64,24 @@ class Envelope extends AppModel {
 		)
 	);
 
+    /**
+     * getname function - returns the name of envelope given an id
+     * @param string id -> envelope_id
+     * @return string envelope name
+     */
+    public function getname($id) {
+        /* limit recursion for minimal data transfer */
+        $this->recursive = -1;
+
+        /* find options */
+        $conditions = array('Envelope.id' => $id);
+        $fields = ('Envelope.name');
+        $options = array('conditions' => $conditions, 'fields' => $fields);
+
+        /* find */
+        $envelope_name = $this->find('first', $options);
+
+        /* return name as string */
+        return $envelope_name['Envelope']['name'];
+    }
 }

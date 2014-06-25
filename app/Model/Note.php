@@ -51,4 +51,24 @@ class Note extends AppModel {
 			'order' => ''
 		)
 	);
+
+    public function savewithjob($data) {
+        /* get envelope name */
+        $db_envelope = ClassRegistry::init('Envelope');
+        $envelope = $db_envelope->getname($data['Job']['envelope_id']);
+        
+        /* create array to save into notes */
+        $note['job_id'] = $data['Job']['id'];
+
+        /* store the envelope type with the notes to prevent confusion */
+        $note['note']   = $envelope;
+        $note['note']  .= '<br/>';
+        $note['note']  .= $data['Job']['note'];
+
+        $this->create();
+        if (!$this->save($note)){
+            throw new NotFoundException(__('Unable to save Notes'));
+        }
+
+    }
 }
