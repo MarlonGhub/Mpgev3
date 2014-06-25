@@ -61,7 +61,7 @@ class JobsController extends AppController {
 
 ############################################################
 # TODO temporarily limited data that pre-add inputs.       #
-#      this must be re-enabled once auth is live.     TODO #
+#      this must be re-enabled once AUTH is live.     TODO #
 ############################################################
 		$data = array(
 			//'status_id' => 1,
