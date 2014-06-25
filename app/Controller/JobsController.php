@@ -39,14 +39,46 @@ class JobsController extends AppController {
 		$options = array('conditions' => array('Job.' . $this->Job->primaryKey => $id));
 		$this->set('job', $this->Job->find('first', $options));
 	}
-
 /**
- * add method
+ * preadd method - create record and redirect to add function
  *
+ * @throws NotFoundException
  * @return void
  */
-	public function add() {
+    public function preadd(){
+        // disable view
+		$this->autoRender = false;
+
+############################################################
+# TODO temporarily limited data that pre-add inputs.       #
+#      this must be re-enabled once auth is live.     TODO #
+############################################################
+		$data = array(
+			//'status_id' => 1,
+			//'company_id' => $this->Session->read('Auth.User.company_id'),
+			//'user_id' => $this->Session->read('Auth.User.id'),
+			'user_id' => '1',
+		);
+		$this->Job->create();
+
+		if($this->Job->save(array('Job' => $data))){
+			$this->redirect(array('action' => 'add', $this->Job->getLastInsertId()));
+        }else{
+            throw new NotFoundException(__('Can not create Job.'));
+        } 
+    }
+/**
+ * add method
+ * @throws NotFoundException
+ * @param string id - lastinsertID from preadd()
+ * @return void
+ */
+	public function add($id = null) {
+        if (!$this->Job->exists($id)) {
+			throw new NotFoundException(__('Invalid job'));
+		}
 		if ($this->request->is('post')) {
+            $this->request->data['Job']['id'] = $id;
 			$this->Job->create();
 			if ($this->Job->save($this->request->data)) {
 				$this->Session->setFlash(__('The job has been saved.'));

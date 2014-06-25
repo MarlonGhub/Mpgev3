@@ -30,13 +30,16 @@
 		echo $this->Html->meta('icon');
 
 		echo $this->Html->css('cake.generic');
-		echo $this->Html->css('jquery.datetimepicker');
+<<<<<<< HEAD
 		echo $this->HTml->css('style.override');
+=======
+		echo $this->Html->css('jquery.datetimepicker');
 
         echo $this->Html->script('jquery-1.11.0.min');
         echo $this->Html->script('jquery.datetimepicker');
         echo $this->Html->script('code39');
         echo $this->Html->script('sitewide');
+>>>>>>> master
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');

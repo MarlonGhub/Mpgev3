@@ -11,6 +11,11 @@
 			<?php echo h($job['Job']['capnumber']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Pgeid'); ?></dt>
+		<dd>
+			<?php echo h($job['Job']['pgeid']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Name'); ?></dt>
 		<dd>
 			<?php echo h($job['Job']['name']); ?>

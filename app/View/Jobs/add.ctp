@@ -1,15 +1,35 @@
+<?php
+    $app_path = Router::url('/');
+
+?>
+<script>
+    $(document).ready(function() {
+        //DATEPICKER LOGIC
+        $(':input[name=JobDuedate]').change(function(){
+            if ($(this.val().match(/^Sa/gi)))
+            {
+               $(this).css('border-color', 'red');
+               alert('test');
+               console.log('Due Date lands on Saturday.  Extra fees may apply.'); 
+            } else {
+            }
+        });
+    });
+</script>
 <div class="jobs form">
 <?php echo $this->Form->create('Job'); ?>
 	<fieldset>
 		<legend><?php echo __('Add Job'); ?></legend>
 	<?php
-		echo $this->Form->input('capnumber');
+		//echo $this->Form->input('capnumber');
 		echo $this->Form->input('name');
+		echo $this->Form->input('pgeid');
+        echo $this->Form->input('duedate', array('class' => 'datepicker', 'type' => 'text', 'div' => false));//, 'label' => false, 'value' => $job['Job']['duedate']));
+		//echo $this->Form->input('duedate');
 		echo $this->Form->input('qty');
-		echo $this->Form->input('duedate');
-		echo $this->Form->input('user_id');
-		echo $this->Form->input('envelope_id');
+		//echo $this->Form->input('user_id');
 		echo $this->Form->input('jobtype_id');
+		echo $this->Form->input('envelope_id');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
