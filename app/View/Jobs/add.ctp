@@ -4,6 +4,14 @@
 <script>
     $(document).ready(function() {
         //BEGIN DATEPICKER LOGIC
+        $("#act-notify1").click(function(){
+            $('.notify1').removeClass('hide');
+        });
+        $("#act-notify2").click(function(){
+            $('.notify2').removeClass('hide');
+        });
+        $("#act-notify3").click(function(){
+            $('.notify3').removeClass('hide');
         $(':input[name=JobDuedate]').change(function(){
             if ($(this.val().match(/^Sa/gi)))
             {
@@ -32,22 +40,139 @@
 		echo $this->Form->input('envelope_id');
         echo $this->Form->input('note', array('type' => 'textarea'));
 	?>
-        <fieldset>
-            <legend>Notifications</legend>
-            <input type="checkbox" id="Notification_pa" name="data[Notification][pa]" />Proof Approval<span class="glyphicon glyphicon-question-sign"></span><br/>
-            <input type="checkbox" id="Notification_js" name="data[Notification][js]" />Job Shipping<span class="glyphicon glyphicon-question-sign"></span><br/>
-            <input type="checkbox" id="Notification_dn" name="data[Notification][dn]" />Delivery Notification<span class="glyphicon glyphicon-question-sign"></span><br/>
-            <select id="data[Notification][user_id]" name="data[Notification][user_id][]">
-                <option value=""> - Please Select a User -</option>
-                <?php
-                    foreach($users as $user){
-                        foreach($user as $k => $v){
-                            echo '<option value='.$k.'>'.$v.'</option>';
-                        }
-                    }
-                ?>
-            </select>
-        </fieldset>
+        <legend>Notifications</legend>
+<!--Begin Notification 0 -->
+        <div class="notify0">
+        <table>
+            <tr>
+                <th class="text-center">Proof Approval</th>
+                <th class="text-center">Job Shipping</th>
+                <th class="text-center">Delivery Notification</th>
+                <th class="text-center">User</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td class="text-center"><input type="checkbox" id="Notification_pa" name="data[Notification][pa][0]" /></td>
+                <td class="text-center"><input type="checkbox" id="Notification_js" name="data[Notification][js][0]" /></td>
+                <td class="text-center"><input type="checkbox" id="Notification_dn" name="data[Notification][dn][0]" /></td>
+                <td class="text-center">
+                    <select id="data[Notification][user_id]" name="data[Notification][user_id][0]">
+                        <option value=""> - Please Select a User -</option>
+                        <?php
+                            foreach($users as $user){
+                                foreach($user as $k => $v){
+                                    echo '<option value='.$k.'>'.$v.'</option>';
+                                }
+                            }
+                        ?>
+                </td>
+                <td>
+                    <span class="glyphicon glyphicon-plus-sign"></span>
+                    <span class="glyphicon glyphicon-minus-sign"></span>
+                </td>
+            </tr>
+        </table>
+        </div>
+<!-- End Notification 0 -->
+<!--Begin Notification 1 -->
+        <div class="notify1">
+        <table>
+            <tr>
+                <th class="text-center">Proof Approval</th>
+                <th class="text-center">Job Shipping</th>
+                <th class="text-center">Delivery Notification</th>
+                <th class="text-center">User</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td class="text-center"><input type="checkbox" id="Notification_pa" name="data[Notification][pa][1]" /></td>
+                <td class="text-center"><input type="checkbox" id="Notification_js" name="data[Notification][js][1]" /></td>
+                <td class="text-center"><input type="checkbox" id="Notification_dn" name="data[Notification][dn][1]" /></td>
+                <td class="text-center">
+                    <select id="data[Notification][user_id]" name="data[Notification][user_id][1]">
+                        <option value=""> - Please Select a User -</option>
+                        <?php
+                            foreach($users as $user){
+                                foreach($user as $k => $v){
+                                    echo '<option value='.$k.'>'.$v.'</option>';
+                                }
+                            }
+                        ?>
+                </td>
+                <td>
+                    <span class="glyphicon glyphicon-plus-sign"></span>
+                    <span class="glyphicon glyphicon-minus-sign"></span>
+                </td>
+            </tr>
+        </table>
+        </div>
+<!-- End Notification 1 -->
+<!--Begin Notification 2 -->
+        <div class="notify2 ">
+        <table>
+            <tr>
+                <th class="text-center">Proof Approval</th>
+                <th class="text-center">Job Shipping</th>
+                <th class="text-center">Delivery Notification</th>
+                <th class="text-center">User</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td class="text-center"><input type="checkbox" id="Notification_pa" name="data[Notification][pa][2]" /></td>
+                <td class="text-center"><input type="checkbox" id="Notification_js" name="data[Notification][js][2]" /></td>
+                <td class="text-center"><input type="checkbox" id="Notification_dn" name="data[Notification][dn][2]" /></td>
+                <td class="text-center">
+                    <select id="data[Notification][user_id]" name="data[Notification][user_id][2]">
+                        <option value=""> - Please Select a User -</option>
+                        <?php
+                            foreach($users as $user){
+                                foreach($user as $k => $v){
+                                    echo '<option value='.$k.'>'.$v.'</option>';
+                                }
+                            }
+                        ?>
+                </td>
+                <td>
+                    <span class="glyphicon glyphicon-plus-sign"></span>
+                    <span class="glyphicon glyphicon-minus-sign"></span>
+                </td>
+            </tr>
+        </table>
+        </div>
+<!-- End Notification 2 -->
+<!--Begin Notification 3 -->
+        <div class="notify3">
+        <table>
+            <tr>
+                <th class="text-center">Proof Approval</th>
+                <th class="text-center">Job Shipping</th>
+                <th class="text-center">Delivery Notification</th>
+                <th class="text-center">User</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td class="text-center"><input type="checkbox" id="Notification_pa" name="data[Notification][pa][3]" /></td>
+                <td class="text-center"><input type="checkbox" id="Notification_js" name="data[Notification][js][3]" /></td>
+                <td class="text-center"><input type="checkbox" id="Notification_dn" name="data[Notification][dn][3]" /></td>
+                <td class="text-center">
+                    <select id="data[Notification][user_id]" name="data[Notification][user_id][3]">
+                        <option value=""> - Please Select a User -</option>
+                        <?php
+                            foreach($users as $user){
+                                foreach($user as $k => $v){
+                                    echo '<option value='.$k.'>'.$v.'</option>';
+                                }
+                            }
+                        ?>
+                </td>
+                <td>
+                    <span class="glyphicon glyphicon-plus-sign"></span>
+                    <span class="glyphicon glyphicon-minus-sign"></span>
+                </td>
+            </tr>
+        </table>
+        </div>
+<!-- End Notification 3 -->
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>

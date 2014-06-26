@@ -17,8 +17,8 @@ class Job extends AppModel {
     public $filterArgs = array(
         'pgeid' => array(
             'type' => 'like',
-            'field' => 'pgeid'
-        ),
+            'field' => array('pgeid','capnumber','duedate'
+        )),
         'status' => array(
             'type' => 'value',
             'field' => 'status'
@@ -50,9 +50,19 @@ class Job extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'jobtype_id' => array(
+		'capnumber' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'capnumber' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
